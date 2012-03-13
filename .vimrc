@@ -81,6 +81,8 @@ map - :s/\v^(\s*)(.+)/\1# \2/<cr>:nohlsearch<cr>
 imap jk <esc>
 imap JK <esc>
 imap Jk <esc>
+imap <c-a> <c-o>I
+imap <c-e> <c-o>A
 
 " Remap the tab key to do autocompletion or indentation depending on the
 " context (from http://www.vim.org/tips/tip.php?tip_id=102)
@@ -149,8 +151,8 @@ set listchars=tab:▸\ ,trail:‽ ",eol:¬
 highlight NonText guifg=#555555 ctermfg=238
 highlight SpecialKey guifg=#cd0000 
 
-"Highlight matching paren blue
-highlight MatchParen ctermbg=4
+"Highlight matching paren
+highlight MatchParen ctermbg=8
 
 "Highlight visual selection background dark-grey
 highlight Visual ctermbg=236 guibg=#444444
@@ -164,7 +166,9 @@ highlight DiffAdd ctermbg=green
 highlight DiffDelete ctermbg=red
 highlight DiffChange ctermbg=yellow
 
-set cc=80
+if has('cc')
+    set cc=80
+endif
 highlight ColorColumn ctermbg=235 guibg=#222222
 
 "Macvim remove toolbar
